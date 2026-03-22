@@ -3,6 +3,7 @@ import type { TaskCardProps, TaskStatus } from "../../types";
 
 export const TaskCard = ({ task }: TaskCardProps) => {
     const [status, setStatus] = useState<TaskStatus>(task.status);
+    const isDone = status === "done";
 
     const getNextStatus = (current: TaskStatus): TaskStatus => {
         switch (current) {
@@ -23,7 +24,9 @@ export const TaskCard = ({ task }: TaskCardProps) => {
             <h3>{task.title}</h3>
             <p>{task.description}</p>
             <span>{status}</span>
-            <button onClick={handleNextStatus}>Next status</button>
+            <button onClick={handleNextStatus} disabled={isDone}>
+                Next status
+            </button>
         </div>
     );
 };
