@@ -2,12 +2,28 @@ import { useState } from "react";
 import type { TaskCardProps, TaskStatus } from "../../types";
 
 export const TaskCard = ({ task }: TaskCardProps) => {
-    const [status, setStatus] = useState<TaskStatus>(task.status)
-  return (
-    <div>
-      <h3>{task.title}</h3>
-      <p>{task.description}</p>
-      <span>{status}</span>
-    </div>
-  );
+    const [status, setStatus] = useState<TaskStatus>(task.status);
+
+    const getNextStatus = (current: TaskStatus): TaskStatus => {
+        switch (current) {
+            case "todo":
+                return "in-progress";
+            case "in-progress":
+                return "done";
+            case "done":
+                return "todo";
+        }
+    };
+
+    const handleNextStatus = () => {
+        setStatus(getNextStatus(status));
+    };
+    return (
+        <div>
+            <h3>{task.title}</h3>
+            <p>{task.description}</p>
+            <span>{status}</span>
+            <button onClick={handleNextStatus}>Next status</button>
+        </div>
+    );
 };
