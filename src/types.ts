@@ -7,3 +7,7 @@ export interface Task {
   priority: TaskPriority;
   status: TaskStatus;
 }
+
+export interface TaskCardProps {
+  task: Task;
+}
