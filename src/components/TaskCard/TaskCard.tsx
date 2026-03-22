@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { TaskCardProps, TaskStatus } from "../../types";
-import "../TaskCard.css";
+import "./TaskCard.css";
 
 export const TaskCard = ({ task }: TaskCardProps) => {
     const [status, setStatus] = useState<TaskStatus>(task.status);
@@ -21,11 +21,13 @@ export const TaskCard = ({ task }: TaskCardProps) => {
         setStatus(getNextStatus(status));
     };
     return (
-        <div>
-            <h3>{task.title}</h3>
-            <p>{task.description}</p>
-            <span>{task.priority}</span>
-            <span>{status}</span>
+        <div className="card">
+            <h3 className="title">{task.title}</h3>
+            <p className="description">{task.description}</p>
+            <div className="badges">
+                <span className={`badge priority ${task.priority}`}>{task.priority}</span>
+                <span className={`badge status ${status}`}>{status}</span>
+            </div>
 
             <button onClick={handleNextStatus} disabled={isDone}>
                 Next status

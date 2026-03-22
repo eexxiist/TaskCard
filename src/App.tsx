@@ -4,7 +4,7 @@ import type { Task } from "./types";
 const task: Task = {
     title: "Настроить авторизацию",
     description: "Реализовать вход по email и паролю",
-    priority: "high",
+    priority: "medium",
     status: "todo",
 };
 

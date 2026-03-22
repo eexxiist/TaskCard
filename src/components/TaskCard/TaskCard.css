@@ -1,11 +1,63 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 300px;
+    font-family: sans-serif;
+}
+
+.title {
+    margin: 0 0 8px;
+}
+
+.description {
+    margin: 0 0 12px;
+    color: #555;
+}
+
+.badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: white;
+    font-size: 12px;
+}
+
 .priority.high {
     background: red;
-  }
-  
-  .priority.medium {
+}
+
+.priority.medium {
     background: orange;
-  }
-  
-  .priority.low {
+}
+
+.priority.low {
     background: green;
-  }
+}
+
+.status.todo {
+    background-color: gray;
+}
+
+.status.in-progress {
+    background-color: blue;
+}
+
+.status.done {
+    background-color: black;
+}
+
+button {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
